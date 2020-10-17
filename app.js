@@ -1,7 +1,8 @@
 const fs = require('fs')
+const ws = require('ws')
 const Client = require('ssh2').Client
 
-var sshConn = new Client()
+const sshConn = new Client()
 
 sshConn.on('ready', () => {
     console.log('Client :: ready')
