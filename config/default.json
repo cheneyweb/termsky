@@ -1,0 +1,72 @@
+{
+    "log": {
+        "level": "log",
+        "header": {
+            "loglist": [
+                "version",
+                "app",
+                "source"
+            ]
+        }
+    },
+    "error": {
+        "debug": true,
+        "errStatus": 500
+    },
+    "auth": {
+        "secret": "DingStock001",
+        "tokenname": "token",
+        "pass": [
+            "*"
+        ],
+        "role": {
+            "admin": [
+                "/xnosql/*",
+                "/xserver/*"
+            ],
+            "user": [
+                "/xnosql/*",
+                "/xserver/*"
+            ]
+        },
+        "mutex": true,
+        "cors": true,
+        "errMsg": "未认证",
+        "errStatus": 401
+    },
+    "guard": {
+        "key": {
+            "default": "ip"
+        },
+        "api": {
+            "default": "20/s"
+        }
+    },
+    "termius": {
+        "port": 6789
+    },
+    "server": {
+        "port": 8092,
+        "staticRoot": "/rebate/",
+        "xnosqlRoot": "/xnosql",
+        "controllerRoot": "/xserver",
+        "middlewareDir": "/src/middleware/",
+        "controllerDir": "/src/controller/",
+        "mongodbUrl": "mongodb://root:DingStock001@dds-uf6ecb7297e073241390-pub.mongodb.rds.aliyuncs.com:3717,dds-uf6ecb7297e073242269-pub.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-29396179",
+        "mongodbName": "rebate",
+        "mongoOption": {
+            "useUnifiedTopology": true,
+            "useNewUrlParser": true
+        },
+        "defaultId": "_id",
+        "defaultCreateAt": "createdAt",
+        "defaultUpdateAt": "updatedAt",
+        "defaultBlockBy": "blockedBy",
+        "defaultBlockByValue": "N",
+        "defaultUTC": 8,
+        "defaultSortBy": "createdAt",
+        "defaultSortOrder": -1,
+        "defaultLimit": 10,
+        "defaultLog": true
+    }
+}
