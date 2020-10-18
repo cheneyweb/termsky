@@ -4,34 +4,42 @@
 <head>
     <meta charset="utf-8">
     <title>Termius</title>
-
-    <script type="text/javascript">
-        function WebSocketTest() {
-            if ("WebSocket" in window) {
-                // 打开一个 web socket
-                let ws = new WebSocket("ws://localhost:6789/xtermius")
-
-                ws.onopen = () => {
-                    ws.send("hello")
-                }
-
-                ws.onmessage = (msgEvent) => {
-                    console.log(msgEvent)
-                }
-
-                ws.onclose = () => {
-                    console.error("连接已关闭...")
-                }
-            }
-        }
-    </script>
-
 </head>
 
 <body>
-    <div id="sse">
+    <pre id="ssh">
+    </pre>
+    <div>
         <a href="javascript:WebSocketTest()">运行</a>
     </div>
 </body>
+
+<script type="text/javascript">
+    function WebSocketTest() {
+        if ("WebSocket" in window) {
+            // 打开一个 web socket
+            let ws = new WebSocket("ws://localhost:6789/xtermius")
+
+            ws.onopen = () => {
+                console.log('连接建立')
+                console.log('发送消息')
+                ws.send("hello")
+            }
+
+            ws.onmessage = (msgEvent) => {
+                console.log('接收消息')
+                draw(msgEvent)
+            }
+
+            ws.onclose = () => {
+                console.error("连接已关闭...")
+            }
+        }
+    }
+
+    function draw(msgEvent) {
+        document.getElementById('ssh').innerHTML += msgEvent.data
+    }
+</script>
 
 </html>
