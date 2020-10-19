@@ -4,6 +4,15 @@ const COLLECTION = {
     SSH: 'ssh'                       // SSH连接信息
 }
 
+const ACTION = {
+    NEW_CONNECT: 'NEW_CONNECT',             // 建立新连接
+    NEW_CONNECT_SHELL: 'NEW_CONNECT_SHELL', // 建立新SHELL
+    CONNECT: 'CONNECT',                     // 连接
+    COMMAND: 'COMMAND',                     // 执行命令
+    CLOSE_CONNECT: 'CLOSE_CONNECT',         // 关闭连接
+}
+
 module.exports = {
-    COLLECTION
+    COLLECTION,
+    ACTION
 }
