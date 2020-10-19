@@ -1,10 +1,36 @@
+// 系统配置参数
 const config = require('config')
 const fs = require('fs')
+
+// SSH服务相关
 const WebSocket = require('ws')
 const Client = require('ssh2').Client
 
+// 应用服务相关
+const Koa = require('koa')
+const cors = require('@koa/cors')
+const koaBody = require('koa-body')
+const mount = require('koa-mount')
+
+// 应用中间件
+const xcontroller = require('koa-xcontroller')
+const xnosql = require('koa-xnosql')
+const xerror = require('koa-xerror')
+const xauth = require('koa-xauth')
+const xguard = require('koa-xguard')
+const xlog = require('koa-xlog')
+
 // 全局工具
 global.log = require('tracer').colorConsole({ level: config.log.level })
+
+// 应用服务
+const app = new Koa()
+app.use(mount('/', cors()))
+app.use(xerror(config.error))
+app.use(koaBody())
+app.use(xlog(config.log))
+app.use(xauth(config.auth))
+// app.use(xguard(config.guard))
 
 // WS双工服务
 const wss = new WebSocket.Server({ port: config.termius.port })
