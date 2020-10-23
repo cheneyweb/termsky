@@ -86,17 +86,26 @@
 {
     "group":"分组",
     "label":"文本标签",
-    "":"",
+    "username":"",
+    "password":"",
+    "passphrase":"",
+    "privateKey":"",
+    "publicKey":""
 }
 ```
 
 >创建SSH连接配置
 ```json
-[POST] /xnosql/ssh/create
+[POST] /xnosql/host/create
 {
     "group":"分组",
     "label":"文本标签",
-    "":"",
+    "address":"连接地址",
+    "port":22,
+    "username":"连接用户",
+    "password":"连接密码",
+    "profileId":"个人信息ID",
+    "startSnippet":"启动脚本"
 }
 ```
 

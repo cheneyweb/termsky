@@ -4,22 +4,22 @@ const router = new Router()
 // 工具相关
 const { COLLECTION } = require('../util/consts.js')
 
-router.post('/ssh/create', async (ctx, next) => {
+router.post('/host/create', async (ctx, next) => {
     const token = ctx.tokenVerify
     return next()
 })
 
-router.post('/ssh/delete', async (ctx, next) => {
+router.post('/host/delete', async (ctx, next) => {
     const token = ctx.tokenVerify
     return next()
 })
 
-router.post('/ssh/update', async (ctx, next) => {
+router.post('/host/update', async (ctx, next) => {
     const token = ctx.tokenVerify
     return next()
 })
 
-router.get('/ssh/feed', async (ctx, next) => {
+router.get('/host/feed', async (ctx, next) => {
     const token = ctx.tokenVerify
     return next()
 })
