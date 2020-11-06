@@ -3,6 +3,7 @@ const config = require('config')
 const fs = require('fs')
 const jwt = require('jsonwebtoken')
 const { ACTION } = require('./src/util/consts.js')
+const serverPort = config.server.port
 
 // SSH服务相关
 const WebSocket = require('ws')
@@ -163,5 +164,6 @@ wss.on('connection', (ws, req) => {
     }
 })
 
-log.info(`TERMIUS应用服务启动【执行环境:${process.env.NODE_ENV},端口:${config.server.port}】`)
+app.listen(serverPort)
+log.info(`TERMIUS应用服务启动【执行环境:${process.env.NODE_ENV},端口:${serverPort}】`)
 log.info(`TERMIUSSSH服务启动【执行环境:${process.env.NODE_ENV},端口:${config.termius.port}】`)
