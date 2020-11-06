@@ -71,18 +71,9 @@
 ```
 
 ## API接口
->用户登录
-```json
-[POST] /xserver/user/login
-{
-    "account":"账号",
-    "password":"密码"
-}
-```
 
->创建个人信息
+>Profile信息
 ```json
-[POST] /xnosql/profile/create
 {
     "group":"分组",
     "label":"文本标签",
@@ -94,9 +85,8 @@
 }
 ```
 
->创建Host信息
+>Host信息
 ```json
-[POST] /xnosql/host/create
 {
     "group":"分组",
     "label":"文本标签",
