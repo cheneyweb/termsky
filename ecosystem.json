@@ -23,12 +23,12 @@
     ],
     "deploy": {
       "dev": {
-        "key": "../ts.pem",
+        "key": "../../dingstock/ts.pem",
         "user": "root",
         "host": "101.132.222.146",
-        "ref": "origin/master",
-        "repo": "git@github.com:dingstock/gateway-dingcloud.git",
-        "path": "/usr/local/node/gateway-dingcloud",
+        "ref": "origin/main",
+        "repo": "https://github.com/cheneyweb/xtermius.git",
+        "path": "/usr/local/node/xtermius",
         "post-deploy": "npm i && pm2 startOrRestart ecosystem.json --env develop"
       }
     }
