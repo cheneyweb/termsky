@@ -17,7 +17,7 @@
         "secret": "xterminus001",
         "tokenname": "token",
         "pass": [
-            "*"
+            "/*"
         ],
         "role": {
             "admin": [
