@@ -1,7 +1,7 @@
 {
     "apps": [
       {
-        "name": "xterminus",
+        "name": "xtermius",
         "script": "app.js",
         "node_args": [],
         "instances": 1,
