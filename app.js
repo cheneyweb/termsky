@@ -38,6 +38,9 @@ app.use(xlog(config.log))
 app.use(xauth(config.auth))
 // app.use(xguard(config.guard))
 
+xnosql.init(app, config.server)
+xcontroller.init(app, config.server)
+
 // WS双工服务
 const wss = new WebSocket.Server({ port: config.termius.port })
 wss.on('connection', (ws, req) => {
@@ -160,4 +163,5 @@ wss.on('connection', (ws, req) => {
     }
 })
 
-log.info(`TERMIUS服务启动【执行环境:${process.env.NODE_ENV},端口:${config.termius.port}】`)
+log.info(`TERMIUS应用服务启动【执行环境:${process.env.NODE_ENV},端口:${config.server.port}】`)
+log.info(`TERMIUSSSH服务启动【执行环境:${process.env.NODE_ENV},端口:${config.termius.port}】`)
