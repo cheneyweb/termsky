@@ -1,7 +1,8 @@
 const COLLECTION = {
     USER: 'user',                    // 用户
     PROFILE: 'profile',              // 个人信息
-    HOST: 'host'                     // 主机信息
+    HOST: 'host',                    // 主机信息
+    SNIPPET: 'snippet'               // 代码片段
 }
 
 const ACTION = {

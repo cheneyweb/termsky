@@ -1,8 +1,7 @@
 // 路由相关
-const Router = require('koa-router')
 const router = new Router()
 // 工具相关
-const { COLLECTION } = require('../util/consts.js')
+
 
 router.post('/profile/create', async (ctx, next) => {
     const token = ctx.tokenVerify
