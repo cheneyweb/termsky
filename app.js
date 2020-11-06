@@ -24,6 +24,9 @@ const xlog = require('koa-xlog')
 
 // 全局工具
 global.log = require('tracer').colorConsole({ level: config.log.level })
+global.Router = require('koa-router')
+const { COLLECTION } = require('./src/util/consts.js')
+global.COLLECTION = COLLECTION
 global.userMap = {}
 
 // 应用服务

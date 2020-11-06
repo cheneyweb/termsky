@@ -94,7 +94,7 @@
 }
 ```
 
->创建SSH连接配置
+>创建Host信息
 ```json
 [POST] /xnosql/host/create
 {
@@ -102,8 +102,6 @@
     "label":"文本标签",
     "address":"连接地址",
     "port":22,
-    "username":"连接用户",
-    "password":"连接密码",
     "profileId":"个人信息ID",
     "startSnippet":"启动脚本"
 }

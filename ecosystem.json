@@ -1,0 +1,35 @@
+{
+    "apps": [
+      {
+        "name": "xterminus",
+        "script": "app.js",
+        "node_args": [],
+        "instances": 1,
+        "exec_mode": "fork",
+        "autorestart": true,
+        "watch": false,
+        "max_memory_restart": "4G",
+        "instance_var": "INSTANCE_ID",
+        "env": {
+          "NODE_ENV": "develop"
+        },
+        "env_pre": {
+          "NODE_ENV": "pre"
+        },
+        "env_production": {
+          "NODE_ENV": "production"
+        }
+      }
+    ],
+    "deploy": {
+      "dev": {
+        "key": "../ts.pem",
+        "user": "root",
+        "host": "101.132.222.146",
+        "ref": "origin/master",
+        "repo": "git@github.com:dingstock/gateway-dingcloud.git",
+        "path": "/usr/local/node/gateway-dingcloud",
+        "post-deploy": "npm i && pm2 startOrRestart ecosystem.json --env develop"
+      }
+    }
+  }

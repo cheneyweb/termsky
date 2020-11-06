@@ -14,7 +14,7 @@
         "errStatus": 500
     },
     "auth": {
-        "secret": "DingStock001",
+        "secret": "xterminus001",
         "tokenname": "token",
         "pass": [
             "*"
@@ -46,7 +46,7 @@
         "port": 6789
     },
     "server": {
-        "port": 8092,
+        "port": 13636,
         "staticRoot": "/rebate/",
         "xnosqlRoot": "/xnosql",
         "controllerRoot": "/xserver",
