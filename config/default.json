@@ -17,7 +17,8 @@
         "secret": "xterminus001",
         "tokenname": "token",
         "pass": [
-            "/*"
+            "/xnosql/*",
+            "/xserver/*"
         ],
         "role": {
             "admin": [
