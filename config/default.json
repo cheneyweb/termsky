@@ -46,14 +46,14 @@
         "port": 6789
     },
     "server": {
-        "port": 13636,
-        "staticRoot": "/rebate/",
+        "port": 8099,
+        "staticRoot": "/xtermius/",
         "xnosqlRoot": "/xnosql",
         "controllerRoot": "/xserver",
         "middlewareDir": "/src/middleware/",
         "controllerDir": "/src/controller/",
         "mongodbUrl": "mongodb://root:DingStock001@dds-uf6ecb7297e073241390-pub.mongodb.rds.aliyuncs.com:3717,dds-uf6ecb7297e073242269-pub.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-29396179",
-        "mongodbName": "rebate",
+        "mongodbName": "xtermius",
         "mongoOption": {
             "useUnifiedTopology": true,
             "useNewUrlParser": true
