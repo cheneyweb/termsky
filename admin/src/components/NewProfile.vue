@@ -6,9 +6,17 @@
     :visible="isShowDrawerProfile"
     @close="onClose"
   >
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
+    <a-form :layout="vertical" :model="form">
+      <a-form-item label="GROUP">
+        <a-input v-model:value="form.group" placeholder="input placeholder" />
+      </a-form-item>
+      <a-form-item label="LABEL">
+        <a-input v-model:value="form.label" placeholder="input placeholder" />
+      </a-form-item>
+      <!-- <a-form-item :wrapper-col="buttonItemLayout.wrapperCol">
+        <a-button type="primary"> Submit </a-button>
+      </a-form-item> -->
+    </a-form>
   </a-drawer>
 </template>
 
@@ -16,7 +24,17 @@
 export default {
   name: "NewProfile",
   data() {
-    return {};
+    return {
+      form: {
+        group: "",
+        label: "",
+        username: "",
+        password: "",
+        passphrase: "",
+        privateKey: "",
+        publicKey: "",
+      },
+    };
   },
   computed: {
     isShowDrawerProfile() {
