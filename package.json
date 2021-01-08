@@ -11,24 +11,24 @@
   "author": "cheneyxu",
   "license": "ISC",
   "dependencies": {
-    "ssh2": "^0.8.9",
-    "ws": "^7.3.1",
     "@koa/cors": "^3.1.0",
-    "axios": "^0.20.0",
-    "config": "^3.3.2",
+    "axios": "^0.21.1",
+    "config": "^3.3.3",
     "jsonwebtoken": "^8.5.1",
-    "koa": "^2.13.0",
+    "koa": "^2.13.1",
     "koa-body": "^4.2.0",
     "koa-mount": "^4.0.0",
-    "koa-xauth": "^1.4.6",
+    "koa-xauth": "^1.5.0",
     "koa-xcontroller": "^1.2.0",
     "koa-xerror": "^1.2.1",
     "koa-xguard": "^1.0.0",
     "koa-xlog": "^1.2.0",
-    "koa-xnosql": "^3.0.8",
+    "koa-xnosql": "^3.1.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
-    "mongodb": "^3.6.2",
-    "node-cron": "^2.0.3"
+    "mongodb": "^3.6.3",
+    "node-cron": "^2.0.3",
+    "ssh2": "^0.8.9",
+    "ws": "^7.4.2"
   }
 }

@@ -38,8 +38,10 @@
         type="primary"
         shape="round"
         :style="{ width: '110px', margin: '4px', float: 'right' }"
-        ><template v-slot:icon><PlusOutlined /></template>NEW HOST</a-button
+        @click="openDrawer"
       >
+        <template v-slot:icon><PlusOutlined /></template>NEW HOST
+      </a-button>
       <a-tabs
         size="small"
         @change="callback"
@@ -51,6 +53,7 @@
         <a-tab-pane key="2" tab="分组2"> Content of Tab Pane 2 </a-tab-pane>
         <a-tab-pane key="3" tab="分组3"> Content of Tab Pane 3 </a-tab-pane>
       </a-tabs>
+      <NewHost />
     </a-layout>
   </a-layout>
 </template>
@@ -61,6 +64,8 @@ import {
   SnippetsFilled,
   PlusOutlined,
 } from "@ant-design/icons-vue";
+
+import NewHost from "@/components/NewHost.vue";
 
 export default {
   data() {
@@ -73,6 +78,12 @@ export default {
     LockFilled,
     SnippetsFilled,
     PlusOutlined,
+    NewHost,
+  },
+  methods: {
+    openDrawer() {
+      this.$store.commit("switchDrawer", { key: "isShowDrawerHost" });
+    },
   },
 };
 </script>
