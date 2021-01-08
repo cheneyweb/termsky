@@ -2,6 +2,8 @@ export const drawer = {
     state: {
         // 抽屉显示状态
         isShowDrawerHost: false,
+        isShowDrawerProfile: false,
+        isShowDrawerSnippet: false
         // 存放数据
         // info: {}
     },

@@ -15,16 +15,17 @@
         mode="inline"
         v-model:selectedKeys="selectedKeys"
         :style="{ background: '#292B3C' }"
+        @select="onSelect"
       >
-        <a-menu-item key="1">
+        <a-menu-item key="host">
           <DatabaseFilled />
           <span class="nav-text">Host</span>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="profile">
           <LockFilled />
           <span class="nav-text">Profile</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="snippet">
           <SnippetsFilled />
           <span class="nav-text">Snippet</span>
         </a-menu-item>
@@ -37,10 +38,10 @@
         size="small"
         type="primary"
         shape="round"
-        :style="{ width: '110px', margin: '4px', float: 'right' }"
-        @click="openDrawer"
+        :style="{ width: '125px', margin: '4px', float: 'right' }"
+        @click="onDrawer"
       >
-        <template v-slot:icon><PlusOutlined /></template>NEW HOST
+        <template v-slot:icon><PlusOutlined /></template>{{ drawTitle }}
       </a-button>
       <a-tabs
         size="small"
@@ -54,6 +55,8 @@
         <a-tab-pane key="3" tab="分组3"> Content of Tab Pane 3 </a-tab-pane>
       </a-tabs>
       <NewHost />
+      <NewProfile />
+      <NewSnippet />
     </a-layout>
   </a-layout>
 </template>
@@ -66,11 +69,14 @@ import {
 } from "@ant-design/icons-vue";
 
 import NewHost from "@/components/NewHost.vue";
+import NewProfile from "@/components/NewProfile.vue";
+import NewSnippet from "@/components/NewSnippet.vue";
 
 export default {
   data() {
     return {
-      selectedKeys: ["1"],
+      selectedKeys: ["host"],
+      drawTitle: "NEW HOST",
     };
   },
   components: {
@@ -79,10 +85,21 @@ export default {
     SnippetsFilled,
     PlusOutlined,
     NewHost,
+    NewProfile,
+    NewSnippet
   },
   methods: {
-    openDrawer() {
-      this.$store.commit("switchDrawer", { key: "isShowDrawerHost" });
+    onDrawer() {
+      if (this.selectedKeys[0] == "host") {
+        this.$store.commit("switchDrawer", { key: "isShowDrawerHost" });
+      } else if (this.selectedKeys[0] == "profile") {
+        this.$store.commit("switchDrawer", { key: "isShowDrawerProfile" });
+      } else if (this.selectedKeys[0] == "snippet") {
+        this.$store.commit("switchDrawer", { key: "isShowDrawerSnippet" });
+      }
+    },
+    onSelect(e) {
+      this.drawTitle = `NEW ${this.selectedKeys[0].toLocaleUpperCase()}`;
     },
   },
 };
