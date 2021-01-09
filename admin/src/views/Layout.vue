@@ -43,7 +43,9 @@
       >
         <template v-slot:icon><PlusOutlined /></template>{{ drawTitle }}
       </a-button>
-      <TabHost />
+
+      <router-view></router-view>
+
       <NewHost />
       <NewProfile />
       <NewSnippet />
@@ -61,7 +63,6 @@ import {
 import NewHost from "@/components/NewHost.vue";
 import NewProfile from "@/components/NewProfile.vue";
 import NewSnippet from "@/components/NewSnippet.vue";
-import TabHost from "@/components/TabHost.vue";
 
 export default {
   data() {
@@ -78,7 +79,6 @@ export default {
     NewHost,
     NewProfile,
     NewSnippet,
-    TabHost,
   },
   methods: {
     onDrawer() {
@@ -92,6 +92,8 @@ export default {
     },
     onSelect(e) {
       this.drawTitle = `NEW ${this.selectedKeys[0].toLocaleUpperCase()}`;
+      console.log(`${this.selectedKeys[0]}`);
+      this.$router.push(`${this.selectedKeys[0]}`);
     },
   },
 };

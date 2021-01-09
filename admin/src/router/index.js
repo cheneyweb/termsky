@@ -1,12 +1,20 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
 import Layout from '../views/Layout.vue'
-
+import TabHost from '../views/TabHost.vue'
+import TabProfile from '../views/TabProfile.vue'
+import TabSnippet from '../views/TabSnippet.vue'
 const routes = [
   {
     path: '/',
+    redirect: '/host',
     name: 'Home',
-    component: Layout
+    component: Layout,
+    children: [
+      { path: 'host', component: TabHost },
+      { path: 'profile', component: TabProfile },
+      { path: 'snippet', component: TabSnippet }
+    ]
   },
   {
     path: '/about',
