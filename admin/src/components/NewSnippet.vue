@@ -6,9 +6,26 @@
     :visible="isShowDrawerSnippet"
     @close="onClose"
   >
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
+    <a-form :layout="vertical" :model="form">
+      <a-form-item>
+        <a-input
+          v-model:value="form.group"
+          placeholder="Group"
+          style="width: 200px"
+        >
+          <template #prefix><user-outlined type="user" /></template>
+        </a-input>
+      </a-form-item>
+      <a-form-item>
+        <a-input
+          v-model:value="form.label"
+          placeholder="Label"
+          style="width: 200px"
+        >
+          <template #prefix><user-outlined type="user" /></template>
+        </a-input>
+      </a-form-item>
+    </a-form>
   </a-drawer>
 </template>
 
@@ -16,7 +33,17 @@
 export default {
   name: "NewSnippet",
   data() {
-    return {};
+    return {
+      form: {
+        group: "",
+        label: "",
+        username: "",
+        password: "",
+        passphrase: "",
+        privateKey: "",
+        publicKey: "",
+      },
+    };
   },
   computed: {
     isShowDrawerSnippet() {
