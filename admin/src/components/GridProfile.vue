@@ -1,20 +1,37 @@
 <template>
   <a-row :gutter="gutters" style="margin-left: 10px; margin-right: 10px">
-    <a-col :key="i" v-for="i in 10" :span="6">
-      <a-card size="small" hoverable>
-        <p>Label</p>
-        <p>username@host</p>
+    <a-col :key="i" v-for="i in 10" :span="8">
+      <a-card
+        size="small"
+        hoverable
+        :loading="loading"
+        style="background-color: #292b3c"
+        :bordered="false"
+      >
+        <a-card-meta title="Label" description="username@host">
+          <template #avatar>
+            <a-avatar size="large" style="backgroundColor:#1F4774">
+              <template #icon>
+                <DatabaseFilled style="fontSize:18px"/>
+              </template>
+            </a-avatar>
+          </template>
+        </a-card-meta>
       </a-card>
     </a-col>
   </a-row>
 </template>
 
 <script>
+import { DatabaseFilled } from "@ant-design/icons-vue";
 export default {
   name: "GridProfile",
-  components: {},
+  components: {
+    DatabaseFilled,
+  },
   data() {
     return {
+      loading: false,
       gutters: [16, 16],
     };
   },
@@ -23,5 +40,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.ant-card-meta-title {
+  color: white !important;
+}
+.ant-card-meta-description {
+  color: white !important;
+}
 </style>
