@@ -1,6 +1,18 @@
 <template>
-  <router-view />
+  <div>
+    <CustomTitle />
+    <router-view />
+  </div>
 </template>
+
+<script>
+import CustomTitle from "@/components/CustomTitle.vue";
+export default {
+  components: {
+    CustomTitle,
+  },
+};
+</script>
 
 <style lang="less">
 #app {

@@ -1,54 +1,55 @@
 <template>
   <a-layout id="components-layout-demo-fixed-sider">
-    <a-layout-sider
-      theme="dark"
-      :style="{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-        background: '#292B3C',
-      }"
-    >
-      <a-menu
+    <a-layout :style="{ marginTop: '1.5rem' }">
+      <a-layout-sider
         theme="dark"
-        mode="inline"
-        v-model:selectedKeys="selectedKeys"
-        :style="{ background: '#292B3C' }"
-        @select="onSelect"
+        :style="{
+          left: 0,
+          height: '100vh',
+          background: '#292B3C',
+          position: 'fixed',
+        }"
       >
-        <a-menu-item key="host">
-          <DatabaseFilled />
-          <span class="nav-text">Host</span>
-        </a-menu-item>
-        <a-menu-item key="profile">
-          <LockFilled />
-          <span class="nav-text">Profile</span>
-        </a-menu-item>
-        <a-menu-item key="snippet">
-          <SnippetsFilled />
-          <span class="nav-text">Snippet</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
-    <a-layout
-      :style="{ marginLeft: '200px', background: '#1E2032', height: '100vh' }"
-    >
-      <a-button
-        size="small"
-        type="primary"
-        shape="round"
-        :style="{ width: '125px', margin: '4px', float: 'right' }"
-        @click="onDrawer"
+        <a-menu
+          theme="dark"
+          mode="inline"
+          v-model:selectedKeys="selectedKeys"
+          :style="{ background: '#292B3C' }"
+          @select="onSelect"
+        >
+          <a-menu-item key="host">
+            <DatabaseFilled />
+            <span class="nav-text">Host</span>
+          </a-menu-item>
+          <a-menu-item key="profile">
+            <LockFilled />
+            <span class="nav-text">Profile</span>
+          </a-menu-item>
+          <a-menu-item key="snippet">
+            <SnippetsFilled />
+            <span class="nav-text">Snippet</span>
+          </a-menu-item>
+        </a-menu>
+      </a-layout-sider>
+      <a-layout
+        :style="{ background: '#1E2032', height: '100vh', marginLeft: '200px' }"
       >
-        <template v-slot:icon><PlusOutlined /></template>{{ drawTitle }}
-      </a-button>
+        <a-button
+          size="small"
+          type="primary"
+          shape="round"
+          :style="{ width: '125px', margin: '4px', float: 'right' }"
+          @click="onDrawer"
+        >
+          <template v-slot:icon><PlusOutlined /></template>{{ drawTitle }}
+        </a-button>
 
-      <router-view></router-view>
+        <router-view></router-view>
 
-      <NewHost />
-      <NewProfile />
-      <NewSnippet />
+        <NewHost />
+        <NewProfile />
+        <NewSnippet />
+      </a-layout>
     </a-layout>
   </a-layout>
 </template>

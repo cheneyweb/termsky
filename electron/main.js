@@ -7,7 +7,8 @@ function createWindow() {
       nodeIntegration: true
     },
     backgroundColor: '#292B3C',
-    darkTheme: true
+    darkTheme: true,
+    frame: false
   })
 
   win.loadURL('http://localhost:8080')
