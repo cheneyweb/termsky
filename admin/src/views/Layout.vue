@@ -32,13 +32,18 @@
         </a-menu>
       </a-layout-sider>
       <a-layout
-        :style="{ background: '#1E2032', height: '100vh', marginLeft: '200px' }"
+        :style="{ background: '#1E2032', height: '100%', marginLeft: '200px' }"
       >
         <a-button
           size="small"
           type="primary"
           shape="round"
-          :style="{ width: '125px', margin: '4px', float: 'right' }"
+          :style="{
+            width: '8rem',
+            height: '1.8rem',
+            margin: '0px 0px 0px 16px',
+            float: 'right',
+          }"
           @click="onDrawer"
         >
           <template v-slot:icon><PlusOutlined /></template>{{ drawTitle }}
