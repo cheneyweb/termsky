@@ -11,6 +11,7 @@ const routes = [
     name: 'Home',
     component: Layout,
     children: [
+      { path: 'account', component: TabHost },
       { path: 'host', component: TabHost },
       { path: 'profile', component: TabProfile },
       { path: 'snippet', component: TabSnippet }

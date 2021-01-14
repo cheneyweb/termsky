@@ -17,6 +17,10 @@
           :style="{ background: '#292B3C' }"
           @select="onSelect"
         >
+          <a-menu-item key="account">
+            <CloudFilled :style="{ fontSize: '1rem' }" />
+            <span class="nav-text">Account</span>
+          </a-menu-item>
           <a-menu-item key="host">
             <DatabaseFilled :style="{ fontSize: '1rem' }" />
             <span class="nav-text">Host</span>
@@ -60,6 +64,7 @@
 </template>
 <script>
 import {
+  CloudFilled,
   DatabaseFilled,
   LockFilled,
   SnippetsFilled,
@@ -78,6 +83,7 @@ export default {
     };
   },
   components: {
+    CloudFilled,
     DatabaseFilled,
     LockFilled,
     SnippetsFilled,
