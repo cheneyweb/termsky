@@ -18,15 +18,15 @@
           @select="onSelect"
         >
           <a-menu-item key="host">
-            <DatabaseFilled />
+            <DatabaseFilled :style="{ fontSize: '1rem' }" />
             <span class="nav-text">Host</span>
           </a-menu-item>
           <a-menu-item key="profile">
-            <LockFilled />
+            <LockFilled :style="{ fontSize: '1rem' }" />
             <span class="nav-text">Profile</span>
           </a-menu-item>
           <a-menu-item key="snippet">
-            <SnippetsFilled />
+            <SnippetsFilled :style="{ fontSize: '1rem' }" />
             <span class="nav-text">Snippet</span>
           </a-menu-item>
         </a-menu>
