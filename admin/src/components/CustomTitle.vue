@@ -16,14 +16,35 @@
         height: '100%',
         padding: '0',
       }"
-    ></div>
+    >
+      <a-row
+        :style="{
+          padding: '0.5rem',
+        }"
+      >
+        <CloseCircleFilled
+          :style="{ color: '#EA6B60' }"
+          class="closeCircle"
+          @click="onClose"
+        />
+      </a-row>
+    </div>
   </a-layout-header>
 </template>
 
 <script>
+import { CloseCircleFilled } from "@ant-design/icons-vue";
+
 export default {
   name: "CustomTitle",
-  methods: {},
+  components: {
+    CloseCircleFilled,
+  },
+  methods: {
+    onClose() {
+      window.require("electron").ipcRenderer.send("window-close");
+    },
+  },
 };
 </script>
     
@@ -34,5 +55,8 @@ export default {
   height: 100%;
   background-color: #1e2032;
   -webkit-app-region: drag;
+}
+.closeCircle:hover {
+  color: #d24d57 !important;
 }
 </style>
