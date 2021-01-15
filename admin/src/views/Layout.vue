@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="components-layout-demo-fixed-sider">
+  <a-layout id="components-layout-demo-fixed-sider" :style="{ height: '100%' }">
     <a-layout :style="{ marginTop: '1.5rem' }">
       <a-layout-sider
         theme="dark"

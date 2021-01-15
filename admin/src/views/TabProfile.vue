@@ -18,8 +18,7 @@
       size="small"
       @change="callback"
       :style="{
-        height: '100vh',
-        color: '#FFFFFF',
+        color: '#FFFFFF'
       }"
     >
       <a-tab-pane key="1" tab="Profile分组1">
@@ -46,7 +45,7 @@ export default {
   components: {
     PlusOutlined,
     GridProfile,
-    NewProfile
+    NewProfile,
   },
   data() {
     return {};
