@@ -1,5 +1,5 @@
 <template>
-  <a-row :gutter="gutters" style="margin-left: 10px; margin-right: 10px">
+  <a-row :gutter="gutters" :style="{ margin: '0px 10px 0px 10px' }">
     <a-col :key="i" v-for="i in 10" :span="8">
       <a-card
         size="small"
@@ -10,9 +10,9 @@
       >
         <a-card-meta title="Label" description="username@host">
           <template #avatar>
-            <a-avatar size="large" style="backgroundColor:#1F4774">
+            <a-avatar size="large" :style="{ backgroundColor: '#1f4774' }">
               <template #icon>
-                <DatabaseFilled style="fontSize:18px"/>
+                <DatabaseFilled :style="{ fontSize: '18px' }" />
               </template>
             </a-avatar>
           </template>
