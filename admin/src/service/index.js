@@ -81,6 +81,6 @@ export function httpRequest(method, url, params) {
 
 // 登录
 export async function login(params) {
-    return axios.post("/xserver/agent/login", params);
+    return axios.post("/xserver/user/login", params);
 }
 

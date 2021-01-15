@@ -35,29 +35,8 @@
           </a-menu-item>
         </a-menu>
       </a-layout-sider>
-      <a-layout
-        :style="{ background: '#1E2032', height: '100vh', marginLeft: '200px' }"
-      >
-        <a-button
-          size="small"
-          type="primary"
-          shape="round"
-          :style="{
-            width: '8rem',
-            height: '1.8rem',
-            margin: '0px 0px 0px 16px',
-            float: 'right',
-          }"
-          @click="onDrawer"
-        >
-          <template v-slot:icon><PlusOutlined /></template>{{ drawTitle }}
-        </a-button>
-
+      <a-layout :style="{ background: '#1E2032', marginLeft: '200px' }">
         <router-view></router-view>
-
-        <NewHost />
-        <NewProfile />
-        <NewSnippet />
       </a-layout>
     </a-layout>
   </a-layout>
@@ -68,18 +47,12 @@ import {
   DatabaseFilled,
   LockFilled,
   SnippetsFilled,
-  PlusOutlined,
 } from "@ant-design/icons-vue";
-
-import NewHost from "@/components/NewHost.vue";
-import NewProfile from "@/components/NewProfile.vue";
-import NewSnippet from "@/components/NewSnippet.vue";
 
 export default {
   data() {
     return {
       selectedKeys: ["host"],
-      drawTitle: "NEW HOST",
     };
   },
   components: {
@@ -87,24 +60,9 @@ export default {
     DatabaseFilled,
     LockFilled,
     SnippetsFilled,
-    PlusOutlined,
-    NewHost,
-    NewProfile,
-    NewSnippet,
   },
   methods: {
-    onDrawer() {
-      if (this.selectedKeys[0] == "host") {
-        this.$store.commit("switchDrawer", { key: "isShowDrawerHost" });
-      } else if (this.selectedKeys[0] == "profile") {
-        this.$store.commit("switchDrawer", { key: "isShowDrawerProfile" });
-      } else if (this.selectedKeys[0] == "snippet") {
-        this.$store.commit("switchDrawer", { key: "isShowDrawerSnippet" });
-      }
-    },
     onSelect(e) {
-      this.drawTitle = `NEW ${this.selectedKeys[0].toLocaleUpperCase()}`;
-      console.log(`${this.selectedKeys[0]}`);
       this.$router.push(`${this.selectedKeys[0]}`);
     },
   },

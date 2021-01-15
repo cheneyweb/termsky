@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height:100vh">
     <a-row type="flex" justify="space-around" align="middle">
       <a-col :span="16" style="padding: 10px">
         <!-- <a-form :model="loginForm" layout="horizontal" @submit="onSubmit" @submit.native.prevent> -->
@@ -40,6 +40,7 @@
         type="primary"
         html-type="submit"
         :disabled="loginForm.account === '' || loginForm.password === ''"
+        @click="onSubmit"
       >
         LOGIN
       </a-button>
@@ -47,6 +48,7 @@
   </div>
 </template>
 <script>
+import { login } from "../service/index.js";
 import { MailFilled, LockOutlined, SendOutlined } from "@ant-design/icons-vue";
 
 export default {
@@ -65,7 +67,8 @@ export default {
   },
   methods: {
     onSubmit(e) {
-      console.log(this.login);
+      console.log(this.loginForm);
+      login(this.loginForm);
     },
   },
 };
