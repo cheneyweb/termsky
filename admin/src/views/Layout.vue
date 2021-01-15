@@ -36,7 +36,7 @@
         </a-menu>
       </a-layout-sider>
       <a-layout
-        :style="{ background: '#1E2032', height: '100%', marginLeft: '200px' }"
+        :style="{ background: '#1E2032', height: '100vh', marginLeft: '200px' }"
       >
         <a-button
           size="small"

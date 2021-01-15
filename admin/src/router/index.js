@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // import Home from '../views/Home.vue'
 import Layout from '../views/Layout.vue'
+import Account from '../views/Account.vue'
 import TabHost from '../views/TabHost.vue'
 import TabProfile from '../views/TabProfile.vue'
 import TabSnippet from '../views/TabSnippet.vue'
@@ -11,7 +12,7 @@ const routes = [
     name: 'Home',
     component: Layout,
     children: [
-      { path: 'account', component: TabHost },
+      { path: 'account', component: Account },
       { path: 'host', component: TabHost },
       { path: 'profile', component: TabProfile },
       { path: 'snippet', component: TabSnippet }
