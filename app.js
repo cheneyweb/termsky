@@ -25,10 +25,16 @@ const xlog = require('koa-xlog')
 
 // 全局工具
 global.log = require('tracer').colorConsole({ level: config.log.level })
+global._ = require('lodash')
+global.moment = require('moment')
+global.axios = require('axios')
+global.config = require('config')
+global.jwt = require('jsonwebtoken')
 global.Router = require('koa-router')
 const { COLLECTION } = require('./src/util/consts.js')
 global.COLLECTION = COLLECTION
 global.userMap = {}
+global.captchaMap = {}
 
 // 应用服务
 const app = new Koa()
