@@ -53,7 +53,7 @@
         "controllerRoot": "/xserver",
         "middlewareDir": "/src/middleware/",
         "controllerDir": "/src/controller/",
-        "mongodbUrl": "mongodb://root:DingStock001@dds-uf6ecb7297e073241390-pub.mongodb.rds.aliyuncs.com:3717,dds-uf6ecb7297e073242269-pub.mongodb.rds.aliyuncs.com:3717/admin?replicaSet=mgset-29396179",
+        "mongodbUrl": "mongodb+srv://admin:Ab123456@xserver-x0ewo.mongodb.net/admin?authSource=admin&replicaSet=XServer-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
         "mongodbName": "xtermius",
         "mongoOption": {
             "useUnifiedTopology": true,
