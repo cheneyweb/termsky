@@ -14,7 +14,7 @@
         "errStatus": 500
     },
     "auth": {
-        "secret": "xterminus001",
+        "secret": "xtermius001",
         "tokenname": "token",
         "pass": [
             "/xnosql/*",
