@@ -1,7 +1,6 @@
 // 系统配置参数
 const config = require('config')
 const fs = require('fs')
-const jwt = require('jsonwebtoken')
 const { ACTION } = require('./src/util/consts.js')
 const serverPort = config.server.port
 

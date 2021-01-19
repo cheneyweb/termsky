@@ -1,8 +1,16 @@
-// import { URL, httpType } from "./urlConfig";
-import { store } from "../store";
+// import { URL, httpType } from "./urlConfig"
+import { message } from 'ant-design-vue'
+import { store } from "../store"
 
 const PROTOCOL = 'http://'
 const DOMAIN = 'localhost:3636'
+
+// 全局消息配置
+message.config({
+    // top: `100px`,
+    duration: 1,
+    maxCount: 2,
+})
 
 // FETCH请求包装
 const axios = {
@@ -28,16 +36,16 @@ const axios = {
                 })
                 let obj = await res.json()
                 if (obj.err) {
-                    // Message.warning(obj.res)
                     // if (obj.err == 401) {
                     //     store.dispatch('logout')
                     // }
+                    message.error(obj.res)
                     reject(obj)
                 } else {
                     resolve(obj)
                 }
             } catch (error) {
-                // Message.warning('网络连接错误')
+                message.warning('INTERNET ERROR')
                 reject(error)
             }
         })
@@ -55,7 +63,6 @@ const axios = {
                 })
                 let obj = await res.json()
                 if (obj.err) {
-                    // Message.warning(obj.res)
                     // if (obj.err == 401) {
                     //     store.dispatch('logout')
                     // }
@@ -64,7 +71,7 @@ const axios = {
                     resolve(obj)
                 }
             } catch (error) {
-                // Message.warning('网络连接错误')
+                message.warning('INTERNET ERROR')
                 reject(error)
             }
         })
@@ -79,8 +86,14 @@ export function httpRequest(method, url, params) {
     }
 }
 
+// 发邮件验证码
+export function sendCode(params) {
+    console.log(params)
+    return axios.get("/xserver/user/code", params);
+}
+
 // 登录
-export async function login(params) {
+export function login(params) {
     return axios.post("/xserver/user/login", params);
 }
 

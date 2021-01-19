@@ -17,8 +17,8 @@
         "secret": "xtermius001",
         "tokenname": "token",
         "pass": [
-            "/xnosql/*",
-            "/xserver/*"
+            "/xserver/user/code",
+            "/xserver/user/login"
         ],
         "role": {
             "admin": [
@@ -47,7 +47,7 @@
         "port": 6789
     },
     "server": {
-        "port": 8080,
+        "port": 3636,
         "staticRoot": "/xtermius/",
         "xnosqlRoot": "/xnosql",
         "controllerRoot": "/xserver",

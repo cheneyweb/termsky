@@ -1,5 +1,5 @@
 <template>
-  <div style="height:100vh">
+  <div style="height: 100vh">
     <a-row type="flex" justify="space-around" align="middle">
       <a-col :span="16" style="padding: 10px">
         <!-- <a-form :model="loginForm" layout="horizontal" @submit="onSubmit" @submit.native.prevent> -->
@@ -16,6 +16,7 @@
           v-model:value="loginForm.password"
           type="password"
           placeholder="CODE"
+          @search="onSend"
         >
           <template #prefix><LockOutlined /></template>
           <template #enterButton>
@@ -48,7 +49,8 @@
   </div>
 </template>
 <script>
-import { login } from "../service/index.js";
+import { message } from "ant-design-vue";
+import { sendCode, login } from "../service/index.js";
 import { MailFilled, LockOutlined, SendOutlined } from "@ant-design/icons-vue";
 
 export default {
@@ -66,8 +68,13 @@ export default {
     };
   },
   methods: {
+    async onSend(e) {
+      let res = await sendCode({ username: this.loginForm.account });
+      if (!res.err) {
+        message.success("already sent");
+      }
+    },
     onSubmit(e) {
-      console.log(this.loginForm);
       login(this.loginForm);
     },
   },
