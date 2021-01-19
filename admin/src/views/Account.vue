@@ -70,12 +70,17 @@ export default {
   methods: {
     async onSend(e) {
       let res = await sendCode({ username: this.loginForm.account });
-      if (!res.err) {
+      if (res.err) {
         message.success("already sent");
       }
     },
-    onSubmit(e) {
-      login(this.loginForm);
+    async onSubmit(e) {
+      let res = await login(this.loginForm);
+      if (!res.err) {
+        
+      } else {
+        message.error("login failed");
+      }
     },
   },
 };

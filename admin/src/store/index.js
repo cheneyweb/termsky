@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { drawer } from './modules/drawer'
+import { user } from './modules/user'
 export default createStore({
   state: {
   },
@@ -8,6 +9,7 @@ export default createStore({
   actions: {
   },
   modules: {
-    drawer
+    drawer,
+    user
   }
 })
