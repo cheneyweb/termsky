@@ -4,7 +4,7 @@
       <a-col :span="16" style="padding: 10px">
         <!-- <a-form :model="loginForm" layout="horizontal" @submit="onSubmit" @submit.native.prevent> -->
         <!-- <a-form-item> -->
-        <a-input v-model:value="loginForm.account" placeholder="EMAIL">
+        <a-input v-model:value="loginForm.username" placeholder="EMAIL">
           <template #prefix><MailFilled /></template>
         </a-input>
       </a-col>
@@ -20,7 +20,7 @@
         >
           <template #prefix><LockOutlined /></template>
           <template #enterButton>
-            <a-button :disabled="loginForm.account === ''">
+            <a-button :disabled="loginForm.username === ''">
               <template #icon>
                 <SendOutlined />
               </template>
@@ -40,7 +40,7 @@
       <a-button
         type="primary"
         html-type="submit"
-        :disabled="loginForm.account === '' || loginForm.password === ''"
+        :disabled="loginForm.username === '' || loginForm.password === ''"
         @click="onSubmit"
       >
         LOGIN
@@ -62,22 +62,23 @@ export default {
   data() {
     return {
       loginForm: {
-        account: "",
+        username: "",
         password: "",
       },
     };
   },
   methods: {
     async onSend(e) {
-      let res = await sendCode({ username: this.loginForm.account });
+      let res = await sendCode({ username: this.loginForm.username });
       if (res.err) {
-        message.success("already sent");
+        message.warning("already sent");
       }
     },
     async onSubmit(e) {
       let res = await login(this.loginForm);
       if (!res.err) {
-        
+        this.$store.commit("login", res.res);
+        message.success("welcome");
       } else {
         message.error("login failed");
       }

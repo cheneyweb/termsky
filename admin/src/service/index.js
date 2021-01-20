@@ -66,10 +66,11 @@ const axios = {
                     // if (obj.err == 401) {
                     //     store.dispatch('logout')
                     // }
-                    reject(obj)
-                } else {
-                    resolve(obj)
+                    // reject(obj)
                 }
+                // else {
+                resolve(obj)
+                // }
             } catch (error) {
                 message.warning('INTERNET ERROR')
                 reject(error)
@@ -88,12 +89,11 @@ export function httpRequest(method, url, params) {
 
 // 发邮件验证码
 export function sendCode(params) {
-    console.log(params)
     return axios.get("/xserver/user/code", params);
 }
 
 // 登录
 export function login(params) {
-    return axios.post("/xserver/user/login", params);
+    return axios.post("/xserver/user/login", params)
 }
 
