@@ -75,13 +75,7 @@ export default {
       }
     },
     async onSubmit(e) {
-      let res = await login(this.loginForm);
-      if (!res.err) {
-        this.$store.commit("login", res.res);
-        message.success("welcome");
-      } else {
-        message.error("login failed");
-      }
+      await login(this.loginForm);
     },
   },
 };

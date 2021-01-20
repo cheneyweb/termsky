@@ -1,6 +1,6 @@
 // import { URL, httpType } from "./urlConfig"
 import { message } from 'ant-design-vue'
-import { store } from "../store"
+import store from "../store"
 
 const PROTOCOL = 'http://'
 const DOMAIN = 'localhost:3636'
@@ -93,7 +93,13 @@ export function sendCode(params) {
 }
 
 // 登录
-export function login(params) {
-    return axios.post("/xserver/user/login", params)
+export async function login(params) {
+    let res = await axios.post("/xserver/user/login", params)
+    if (!res.err) {
+        store.commit("login", res.res)
+        message.success("welcome")
+    } else {
+        message.error("login failed")
+    }
+    return res
 }
-
