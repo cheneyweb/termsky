@@ -20,11 +20,11 @@
         >
           <template #prefix><LockOutlined /></template>
           <template #enterButton>
-            <a-button :disabled="loginForm.username === ''">
+            <a-button :disabled="loginForm.username === '' && sendAble">
               <template #icon>
                 <SendOutlined />
               </template>
-              SEND
+              {{ sendText }}
             </a-button>
           </template>
         </a-input-search>
@@ -65,13 +65,29 @@ export default {
         username: "",
         password: "",
       },
+      sendText: "SEND",
+      sendAble: true,
     };
   },
   methods: {
     async onSend(e) {
+      this.sendAble = false;
       let res = await sendCode({ username: this.loginForm.username });
       if (res.err) {
         message.warning("already sent");
+        this.sendAble = true;
+      } else {
+        console.log(this.sendAble)
+        let countDown = 60;
+        let intervalHandle = setInterval(() => {
+          this.sendText = `SEND (${countDown--})`;
+          console.log()
+          if (countDown == 0) {
+            this.sendAble = true;
+            this.sendText = `SEND`;
+            clearInterval(intervalHandle);
+          }
+        }, 1000);
       }
     },
     async onSubmit(e) {
