@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { querySnippet } from "../service/index.js";
 import { PlusOutlined } from "@ant-design/icons-vue";
 import GridSnippet from "@/components/GridSnippet.vue";
 import NewSnippet from "@/components/NewSnippet.vue";

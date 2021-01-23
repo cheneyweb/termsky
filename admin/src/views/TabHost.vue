@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { queryHost } from "../service/index.js";
 import { PlusOutlined } from "@ant-design/icons-vue";
 import NewHost from "@/components/NewHost.vue";
 import GridHost from "@/components/GridHost.vue";

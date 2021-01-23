@@ -18,7 +18,7 @@
       size="small"
       @change="callback"
       :style="{
-        color: '#FFFFFF'
+        color: '#FFFFFF',
       }"
     >
       <a-tab-pane key="1" tab="Profile分组1">
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { queryProfile } from "../service/index.js";
 import { PlusOutlined } from "@ant-design/icons-vue";
 import GridProfile from "@/components/GridProfile.vue";
 import NewProfile from "@/components/NewProfile.vue";

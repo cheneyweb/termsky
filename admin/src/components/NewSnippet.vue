@@ -30,6 +30,11 @@
 </template>
 
 <script>
+import {
+  createSnippet,
+  updateSnippet,
+  deleteSnippet,
+} from "../service/index.js";
 export default {
   name: "NewSnippet",
   data() {

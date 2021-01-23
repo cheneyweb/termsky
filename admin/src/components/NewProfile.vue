@@ -21,6 +21,11 @@
 </template>
 
 <script>
+import {
+  createProfile,
+  updateProfile,
+  deleteProfile,
+} from "../service/index.js";
 export default {
   name: "NewProfile",
   data() {

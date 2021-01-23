@@ -103,3 +103,54 @@ export async function login(params) {
     }
     return res
 }
+
+// 新增HOST
+export function createHost(params) {
+    return axios.get("/xnosql/host/create", params);
+}
+// 更新HOST
+export function updateHost(params) {
+    return axios.get("/xnosql/host/update", params);
+}
+// 查询HOST
+export function queryHost(params) {
+    return axios.get('/xnosql/host/query', params);
+}
+// 删除HOST
+export function deleteHost(id) {
+    return axios.post(`/xnosql/host/delete/${id}`);
+}
+
+// 新增Profile
+export function createProfile(params) {
+    return axios.get("/xnosql/profile/create", params);
+}
+// 更新Profile
+export function updateProfile(params) {
+    return axios.get("/xnosql/profile/update", params);
+}
+// 查询Profile
+export function queryProfile(params) {
+    return axios.get('/xnosql/profile/query', params);
+}
+// 删除Profile
+export function deleteProfile(id) {
+    return axios.post(`/xnosql/profile/delete/${id}`);
+}
+
+// 新增Snippet
+export function createSnippet(params) {
+    return axios.get("/xnosql/snippet/create", params);
+}
+// 更新Snippet
+export function updateSnippet(params) {
+    return axios.get("/xnosql/snippet/update", params);
+}
+// 查询Snippet
+export function querySnippet(params) {
+    return axios.get('/xnosql/snippet/query', params);
+}
+// 删除Snippet
+export function deleteSnippet(id) {
+    return axios.post(`/xnosql/snippet/delete/${id}`);
+}

@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { createHost, updateHost, deleteHost } from "../service/index.js";
 import { UserOutlined } from "@ant-design/icons-vue";
 
 export default {
