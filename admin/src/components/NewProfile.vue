@@ -13,10 +13,11 @@
       <a-form-item label="LABEL">
         <a-input v-model:value="form.label" placeholder="input placeholder" />
       </a-form-item>
-      <!-- <a-form-item :wrapper-col="buttonItemLayout.wrapperCol">
-        <a-button type="primary"> Submit </a-button>
-      </a-form-item> -->
+      <a-form-item>
+        <a-button type="primary" @click="onSubmit">Submit</a-button>
+      </a-form-item>
     </a-form>
+    
   </a-drawer>
 </template>
 
@@ -50,6 +51,9 @@ export default {
   methods: {
     onClose() {
       this.$store.commit("switchDrawer", { key: "isShowDrawerProfile" });
+    },
+    onSubmit() {
+      createProfile(this.form);
     },
   },
 };

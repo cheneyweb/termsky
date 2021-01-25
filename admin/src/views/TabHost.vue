@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import { queryHost } from "../service/index.js";
 import { PlusOutlined } from "@ant-design/icons-vue";
 import NewHost from "@/components/NewHost.vue";
@@ -48,9 +49,11 @@ export default {
       hosts: [],
     };
   },
-  created() {
-    // queryHost();
-    this.groups = ["Host分组A", "Host分组B", "Host分组C"];
+  async created() {
+    let res = await queryHost();
+    if (!res.err) {
+      this.groups = Object.keys(_.groupBy(res.res, "group"));
+    }
   },
   computed: {},
   methods: {

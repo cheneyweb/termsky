@@ -31,7 +31,7 @@ const axios = {
             try {
                 let res = await fetch(`${PROTOCOL}${DOMAIN}${url}`, {
                     headers: {
-                        // 'token': store.state.login.infos.token ? store.state.login.infos.token : null
+                        'token': store.state.user.token || null
                     }
                 })
                 let obj = await res.json()
@@ -57,7 +57,7 @@ const axios = {
                     body: JSON.stringify(data),
                     headers: {
                         'content-type': 'application/json; charset=utf-8',
-                        // 'token': store.state.login.infos.token ? store.state.login.infos.token : null
+                        'token': store.state.user.token || null
                     },
                     method: 'POST'
                 })
@@ -106,11 +106,11 @@ export async function login(params) {
 
 // 新增HOST
 export function createHost(params) {
-    return axios.get("/xnosql/host/create", params);
+    return axios.post("/xnosql/host/create", params);
 }
 // 更新HOST
 export function updateHost(params) {
-    return axios.get("/xnosql/host/update", params);
+    return axios.post("/xnosql/host/update", params);
 }
 // 查询HOST
 export function queryHost(params) {
@@ -123,11 +123,11 @@ export function deleteHost(id) {
 
 // 新增Profile
 export function createProfile(params) {
-    return axios.get("/xnosql/profile/create", params);
+    return axios.post("/xnosql/profile/create", params);
 }
 // 更新Profile
 export function updateProfile(params) {
-    return axios.get("/xnosql/profile/update", params);
+    return axios.post("/xnosql/profile/update", params);
 }
 // 查询Profile
 export function queryProfile(params) {
@@ -140,11 +140,11 @@ export function deleteProfile(id) {
 
 // 新增Snippet
 export function createSnippet(params) {
-    return axios.get("/xnosql/snippet/create", params);
+    return axios.post("/xnosql/snippet/create", params);
 }
 // 更新Snippet
 export function updateSnippet(params) {
-    return axios.get("/xnosql/snippet/update", params);
+    return axios.post("/xnosql/snippet/update", params);
 }
 // 查询Snippet
 export function querySnippet(params) {

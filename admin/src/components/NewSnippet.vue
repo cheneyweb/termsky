@@ -7,25 +7,17 @@
     @close="onClose"
   >
     <a-form :layout="vertical" :model="form">
-      <a-form-item>
-        <a-input
-          v-model:value="form.group"
-          placeholder="Group"
-          style="width: 200px"
-        >
-          <template #prefix><user-outlined type="user" /></template>
-        </a-input>
+      <a-form-item label="GROUP">
+        <a-input v-model:value="form.group" placeholder="input placeholder" />
+      </a-form-item>
+      <a-form-item label="LABEL">
+        <a-input v-model:value="form.label" placeholder="input placeholder" />
       </a-form-item>
       <a-form-item>
-        <a-input
-          v-model:value="form.label"
-          placeholder="Label"
-          style="width: 200px"
-        >
-          <template #prefix><user-outlined type="user" /></template>
-        </a-input>
+        <a-button type="primary" @click="onSubmit">Submit</a-button>
       </a-form-item>
     </a-form>
+    
   </a-drawer>
 </template>
 
@@ -59,6 +51,9 @@ export default {
   methods: {
     onClose() {
       this.$store.commit("switchDrawer", { key: "isShowDrawerSnippet" });
+    },
+    onSubmit() {
+      createSnippet(this.form);
     },
   },
 };

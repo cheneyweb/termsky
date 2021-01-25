@@ -25,10 +25,11 @@
           <template #prefix><user-outlined type="user" /></template>
         </a-input>
       </a-form-item>
-      <!-- <a-form-item :wrapper-col="buttonItemLayout.wrapperCol">
-        <a-button type="primary"> Submit </a-button>
-      </a-form-item> -->
+      <a-form-item>
+        <a-button type="primary" @click="onSubmit">Submit</a-button>
+      </a-form-item>
     </a-form>
+    
   </a-drawer>
 </template>
 
@@ -62,6 +63,9 @@ export default {
   methods: {
     onClose() {
       this.$store.commit("switchDrawer", { key: "isShowDrawerHost" });
+    },
+    onSubmit() {
+      createHost(this.form);
     },
   },
 };
