@@ -21,14 +21,8 @@
         color: '#FFFFFF',
       }"
     >
-      <a-tab-pane key="1" tab="Profile分组1">
-        <GridProfile />
-      </a-tab-pane>
-      <a-tab-pane key="2" tab="Profile分组2">
-        Content of Tab Pane 2
-      </a-tab-pane>
-      <a-tab-pane key="3" tab="Profile分组3">
-        Content of Tab Pane 3
+      <a-tab-pane v-for="(item, i) in groups" :key="item" :tab="item">
+        <GridProfile :group="item" />
       </a-tab-pane>
     </a-tabs>
     <NewProfile />
@@ -49,7 +43,14 @@ export default {
     NewProfile,
   },
   data() {
-    return {};
+    return {
+      groups: [],
+      hosts: [],
+    };
+  },
+  created() {
+    // queryProfile();
+    this.groups = ["Profile分组A", "Profile分组B", "Profile分组C"];
   },
   computed: {},
   methods: {

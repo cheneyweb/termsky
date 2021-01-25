@@ -16,16 +16,14 @@
     </a-button>
     <a-tabs
       size="small"
-      @change="callback"
+      @change="onQuery"
       :style="{
         color: '#FFFFFF',
       }"
     >
-      <a-tab-pane key="1" tab="Host分组1">
-        <GridHost />
+      <a-tab-pane v-for="(item, i) in groups" :key="item" :tab="item">
+        <GridHost :group="item" />
       </a-tab-pane>
-      <a-tab-pane key="2" tab="Host分组2"> Content of Tab Pane 2 </a-tab-pane>
-      <a-tab-pane key="3" tab="Host分组3"> Content of Tab Pane 3 </a-tab-pane>
     </a-tabs>
     <NewHost />
   </a-row>
@@ -45,12 +43,22 @@ export default {
     NewHost,
   },
   data() {
-    return {};
+    return {
+      groups: [],
+      hosts: [],
+    };
+  },
+  created() {
+    // queryHost();
+    this.groups = ["Host分组A", "Host分组B", "Host分组C"];
   },
   computed: {},
   methods: {
     onDrawer() {
       this.$store.commit("switchDrawer", { key: "isShowDrawerHost" });
+    },
+    onQuery(key) {
+      // console.log(key);
     },
   },
 };

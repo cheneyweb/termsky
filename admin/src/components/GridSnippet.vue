@@ -29,6 +29,9 @@ export default {
   components: {
     DatabaseFilled,
   },
+  props: {
+    group: String,
+  },
   data() {
     return {
       loading: false,

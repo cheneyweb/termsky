@@ -29,11 +29,19 @@ export default {
   components: {
     DatabaseFilled,
   },
+  props: {
+    group: String,
+  },
   data() {
     return {
       loading: false,
       gutters: [16, 16],
     };
+  },
+  created() {
+    console.log("内部1")
+    console.log(this.group);
+    console.log("内部2")
   },
   computed: {},
   methods: {},
