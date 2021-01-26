@@ -52,7 +52,7 @@ import {
 export default {
   data() {
     return {
-      selectedKeys: ["host"],
+      selectedKeys: ["account"],
     };
   },
   components: {

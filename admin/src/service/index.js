@@ -14,7 +14,7 @@ message.config({
 
 // FETCH请求包装
 const axios = {
-    async get(url, params) {
+    get(url, params) {
         return new Promise(async (resolve, reject) => {
             if (params) {
                 let paramsArray = [];
@@ -31,7 +31,7 @@ const axios = {
             try {
                 let res = await fetch(`${PROTOCOL}${DOMAIN}${url}`, {
                     headers: {
-                        'token': store.state.user.token || null
+                        'token': getToken()
                     }
                 })
                 let obj = await res.json()
@@ -57,7 +57,7 @@ const axios = {
                     body: JSON.stringify(data),
                     headers: {
                         'content-type': 'application/json; charset=utf-8',
-                        'token': store.state.user.token || null
+                        'token': getToken()
                     },
                     method: 'POST'
                 })
@@ -79,6 +79,17 @@ const axios = {
     }
 }
 
+function getToken() {
+    if (!store.state.user.token) {
+        let userJson = localStorage.getItem("user")
+        if (userJson) {
+            let user = JSON.parse(userJson)
+            store.commit("login", user)
+        }
+    }
+    return store.state.user.token
+}
+
 export function httpRequest(method, url, params) {
     if (method == 'get') {
         return axios.get(url, params);
@@ -97,6 +108,7 @@ export async function login(params) {
     let res = await axios.post("/xserver/user/login", params)
     if (!res.err) {
         store.commit("login", res.res)
+        localStorage.setItem("user", JSON.stringify(res.res));
         message.success("welcome")
     } else {
         message.error("login failed")

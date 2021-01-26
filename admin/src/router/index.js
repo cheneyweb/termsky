@@ -8,7 +8,7 @@ import TabSnippet from '../views/TabSnippet.vue'
 const routes = [
   {
     path: '/',
-    redirect: '/host',
+    redirect: '/account',
     name: 'Home',
     component: Layout,
     children: [
