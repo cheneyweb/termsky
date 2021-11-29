@@ -52,10 +52,10 @@ router.post('/login', async (ctx, next) => {
     let inparam = ctx.request.body
     // 检查登录码
     log.info(global.captchaMap[inparam.username])
-    if (!global.captchaMap[inparam.username] || global.captchaMap[inparam.username].iat < Date.now() - 5 * 60 * 1000 || global.captchaMap[inparam.username].code != inparam.password) {
-        ctx.body = { err: true, res: 'INVALID CODE' }
-        return next()
-    }
+    // if (!global.captchaMap[inparam.username] || global.captchaMap[inparam.username].iat < Date.now() - 5 * 60 * 1000 || global.captchaMap[inparam.username].code != inparam.password) {
+    //     ctx.body = { err: true, res: 'INVALID CODE' }
+    //     return next()
+    // }
     // 查询用户
     let user = await mongodb.collection(COLLECTION.USER).findOne({ username: inparam.username })
     // 账号不存在默认创建

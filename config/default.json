@@ -14,7 +14,7 @@
         "errStatus": 500
     },
     "auth": {
-        "secret": "xtermius001",
+        "secret": "termsky001",
         "tokenname": "token",
         "pass": [
             "/xserver/user/code",
@@ -48,13 +48,13 @@
     },
     "server": {
         "port": 3636,
-        "staticRoot": "/xtermius/",
-        "xnosqlRoot": "/xnosql",
-        "controllerRoot": "/xserver",
+        "staticRoot": "/termsky/",
+        "xnosqlRoot": "/termsky/xnosql",
+        "controllerRoot": "/termsky/xserver",
         "middlewareDir": "/src/middleware/",
         "controllerDir": "/src/controller/",
         "mongodbUrl": "mongodb+srv://admin:Ab123456@xserver-x0ewo.mongodb.net/admin?authSource=admin&replicaSet=XServer-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
-        "mongodbName": "xtermius",
+        "mongodbName": "termsky",
         "mongoOption": {
             "useUnifiedTopology": true,
             "useNewUrlParser": true
