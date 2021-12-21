@@ -1,7 +1,7 @@
 {
     "apps": [
       {
-        "name": "xtermius",
+        "name": "termsky",
         "script": "app.js",
         "node_args": [],
         "instances": 1,
