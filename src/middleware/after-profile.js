@@ -23,4 +23,13 @@ router.get('/profile/feed', async (ctx, next) => {
     return next()
 })
 
+router.get('/profile/get/:id', async (ctx, next) => {
+    const token = ctx.tokenVerify
+    let res = ctx.body.res
+    if (res && res.groupId) {
+        res.group = await mongodb.collection(COLLECTION.GROUP).findOne({ _id: res.groupId })
+    }
+    return next()
+})
+
 module.exports = router
