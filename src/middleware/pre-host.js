@@ -6,7 +6,7 @@ const router = new Router()
 router.post('/host/create', async (ctx, next) => {
     const token = ctx.tokenVerify
     let inparam = ctx.request.body
-    inparam.groupId = inparam.groupId || 'default'    
+    inparam.groupId = inparam.groupId || 'default'
     return next()
 })
 
