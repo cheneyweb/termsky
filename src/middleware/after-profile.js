@@ -8,8 +8,10 @@ router.post('/profile/create', async (ctx, next) => {
     return next()
 })
 
-router.post('/profile/delete', async (ctx, next) => {
+router.post('/profile/delete/:id', async (ctx, next) => {
     const token = ctx.tokenVerify
+    let profileId = ctx.params.id
+    await mongodb.collection(COLLECTION.HOST).updateMany({ profileId }, { $set: { profileId: 'N' } })
     return next()
 })
 

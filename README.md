@@ -75,33 +75,30 @@
 >Profile信息
 ```json
 {
-    "group":"分组",
-    "label":"文本标签",
-    "username":"",
-    "password":"",
-    "passphrase":"",
-    "privateKey":"",
-    "publicKey":""
+    "groupId": "所属分组ID",
+    "alias": "别名",
+    "username": "账号",
+    "password": "密码",
+    "key": "密钥"
 }
 ```
 
 >Host信息
 ```json
 {
-    "group":"分组",
-    "label":"文本标签",
-    "address":"连接地址",
-    "port":22,
-    "profileId":"个人信息ID",
-    "startSnippet":"启动脚本"
+    "groupId": "所属分组ID",
+    "alias": "别名",
+    "hostname": "主机名",
+    "port": "22",
+    "profileId": "连接身份ID"
 }
 ```
 
 >Snippet代码片段
 ```json
 {
-    "group":"分组",
-    "label":"文本标签",
-    "text":"代码片段"
+    "groupId": "所属分组ID",
+    "alias": "别名",
+    "content": "内容"
 }
 ```

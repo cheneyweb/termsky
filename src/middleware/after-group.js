@@ -12,7 +12,7 @@ router.post('/group/delete/:id', async (ctx, next) => {
     const token = ctx.tokenVerify
     let groupId = ctx.params.id
     if (ctx.group) {
-        await mongodb.collection(ctx.group.type.toLowerCase()).updateMany({ groupId }, { $set: { groupId: 'default' } })
+        await mongodb.collection(ctx.group.type.toLowerCase()).updateMany({ groupId }, { $set: { groupId: 'N' } })
     }
     return next()
 })

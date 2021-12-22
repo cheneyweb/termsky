@@ -5,7 +5,7 @@ const router = new Router()
 router.post('/profile/create', async (ctx, next) => {
     const token = ctx.tokenVerify
     let inparam = ctx.request.body
-    inparam.groupId = inparam.groupId || 'default'
+    inparam.groupId = inparam.groupId || 'N'
     return next()
 })
 
